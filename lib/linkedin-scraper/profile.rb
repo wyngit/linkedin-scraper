@@ -93,8 +93,10 @@ module Linkedin
         name   = item.at('h4').text.gsub(/\s+|\n/, ' ').strip      if item.at('h4')
         desc   = item.at('h5').text.gsub(/\s+|\n/, ' ').strip      if item.at('h5')
         period = item.at('.education-date').text.gsub(/\s+|\n/, ' ').strip if item.at('.education-date')
+        degree = item.at('.degree').text.gsub(/\s+|\n/, ' ').strip if item.at('.degree')
+        major = item.at('.major').text.gsub(/\s+|\n/, ' ').strip if item.at('.major')
 
-        {:name => name, :description => desc, :period => period }
+        {:name => name, :description => desc, :period => period, :degree => degree, :major => major }
       end
     end
 
